@@ -4,6 +4,15 @@ import javax.xml.soap.Text;
 
 public class TextEditor {
     private SpellChecker spellChecker;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public SpellChecker getSpellChecker() {
         return spellChecker;
