@@ -1,10 +1,8 @@
 package com.tutorialspoint;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 public class TextEditor {
-
 
     private SpellChecker spellChecker;
     @Autowired(required = false)//if set to false, then the value will not be set.

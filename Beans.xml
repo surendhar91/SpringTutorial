@@ -16,7 +16,6 @@
     </bean>
     <bean class="com.tutorialspoint.InitHelloWorld"/>
     <bean id="textEditor" class="com.tutorialspoint.TextEditor">
-        <!--<constructor-arg index="1" value="General Text Editor"/>-->
     </bean>
     <bean id="spellChecker" class="com.tutorialspoint.SpellChecker"/>
     <bean id = "javaCollection" class = "com.tutorialspoint.JavaCollection">
