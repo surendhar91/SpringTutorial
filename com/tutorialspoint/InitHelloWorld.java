@@ -8,7 +8,7 @@ public class InitHelloWorld implements BeanPostProcessor{
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         //before init method of bean getting called.
-        ((HelloWorld)bean).getMessage();
+//        ((HelloWorld)bean).getMessage1();
         return bean;
     }
 
