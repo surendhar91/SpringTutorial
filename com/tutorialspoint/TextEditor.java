@@ -6,12 +6,15 @@ import org.springframework.beans.factory.annotation.Required;
 public class TextEditor {
 
 
-    @Autowired //always perform auto wiring byType
     private SpellChecker spellChecker;
     private String name;
 
-    public TextEditor() {
+    @Autowired
+    public TextEditor(SpellChecker spellChecker,String name) {
+        //if the name is not specified in the constructor-arg, then on autowiring exception will be thrown.
         System.out.println("Inside text editor constructor");
+        this.spellChecker = spellChecker;
+        this.name = name;
     }
 
     @Override
@@ -20,15 +23,6 @@ public class TextEditor {
                 "spellChecker=" + spellChecker +
                 ", name='" + name + '\'' +
                 '}';
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    //applies to bean property setter methods, must be populated in xml configuration file
-    public void setName(String name) {
-        this.name = name;
     }
 
     public void spellCheck() {

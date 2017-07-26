@@ -9,8 +9,8 @@ public class MainApp {
         AbstractApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
         System.out.println("=======================");
         TextEditor textEditor = (TextEditor) context.getBean("textEditor");
-        System.out.println(textEditor);
         textEditor.spellCheck();
+        System.out.println(textEditor);
         /*JavaCollection jc=(JavaCollection)context.getBean("javaCollection");
 
         jc.getAddressList();
