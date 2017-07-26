@@ -4,15 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Required;
 
 public class TextEditor {
-    public SpellChecker getSpellChecker() {
-        return spellChecker;
-    }
+
 
     @Autowired //always perform auto wiring byType
-    public void setSpellChecker(SpellChecker spellChecker) {
-        this.spellChecker = spellChecker;
-    }
-
     private SpellChecker spellChecker;
     private String name;
 
