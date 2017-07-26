@@ -11,7 +11,7 @@ public class MainApp {
 
         AbstractApplicationContext context = new AnnotationConfigApplicationContext(BeanConfig.class);
         System.out.println("=======================");
-        TextEditor textEditor = (TextEditor) context.getBean("textEditor");
+        TextEditor textEditor = (TextEditor) context.getBean(TextEditor.class);
         textEditor.spellCheck();
         textEditor.setName("TextEditor1..");
         System.out.println(textEditor);
