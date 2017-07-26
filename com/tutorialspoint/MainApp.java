@@ -10,6 +10,13 @@ public class MainApp {
         System.out.println("=======================");
         TextEditor textEditor = (TextEditor) context.getBean("textEditor");
         textEditor.spellCheck();
+        JavaCollection jc=(JavaCollection)context.getBean("javaCollection");
+
+        jc.getAddressList();
+        jc.getAddressSet();
+        jc.getAddressMap();
+        jc.getAddressProp();
+
         context.registerShutdownHook();
     }
 }
