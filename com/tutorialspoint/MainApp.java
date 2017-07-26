@@ -20,8 +20,11 @@ public class MainApp {
 //        Resource resource = new ClassPathResource("Beans.xml");
 //        BeanFactory context = new XmlBeanFactory(resource);
 
-        HelloWorld helloWorld = (HelloWorld) context.getBean("helloWorld");
-        helloWorld.getMessage();
-        ((ClassPathXmlApplicationContext)context).close();//calls the destroy method.
+        HelloWorld instance1 = (HelloWorld) context.getBean("helloWorld");
+        instance1.setMessage("Instance 1");
+        instance1.getMessage();
+
+        HelloWorld instance2 = (HelloWorld)context.getBean("helloWorld");
+        instance2.getMessage();
     }
 }
