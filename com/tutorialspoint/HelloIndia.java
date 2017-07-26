@@ -1,5 +1,8 @@
 package com.tutorialspoint;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
 public class HelloIndia {
     private String message1;
     private String message2;
@@ -7,6 +10,15 @@ public class HelloIndia {
 
     public void getMessage1() {
         System.out.println("India Message1 : " + message1);
+    }
+
+    @Override
+    public String toString() {
+        return "HelloIndia{" +
+                "message1='" + message1 + '\'' +
+                ", message2='" + message2 + '\'' +
+                ", message3='" + message3 + '\'' +
+                '}';
     }
 
     public void setMessage1(String message1) {

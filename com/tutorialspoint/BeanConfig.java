@@ -9,21 +9,20 @@ the class can be used by the Spring IoC container as a source of bean definition
 * */
 public class BeanConfig {
     @Bean
-    //NOTE: Even if you have multiple bean names, if the scope of bean is singleton, when getting the bean you will get only one instance..
-    //a method annotated with @Bean will return an object that should be registered as a bean in the Spring application context.
     public TextEditor textEditor(){
         return new TextEditor();
     }
     @Bean
-    @Lazy
-    //Bean names are essentially alias, here spellChecker2 is the id, then we can specify textEditor2 were the alias.
     public SpellChecker dictSpellChecker(){
         return new SpellChecker();
     }
     @Bean(name="spellChecker")
-    @Lazy
     public SpellChecker normalSpellChecker(){
         return new SpellChecker();
+    }
+    @Bean(initMethod = "init",destroyMethod = "destroy")
+    public Job createJob(){
+        return new Job();
     }
 
 }

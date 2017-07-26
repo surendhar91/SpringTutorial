@@ -3,6 +3,9 @@ package com.tutorialspoint;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Required;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -12,6 +15,9 @@ public class TextEditor implements BeanNameAware{
 
     /*
     * The @Resource annotation takes a 'name' attribute which will be interpreted as the bean name to be injected. You can say, it follows by-name autowiring semantics*/
+    @Autowired
+    private Job job;
+
     @Resource(name="spellChecker")
     private SpellChecker spellChecker;
 
@@ -23,6 +29,19 @@ public class TextEditor implements BeanNameAware{
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "TextEditor{" +
+                "spellChecker=" + spellChecker +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
+//    @Autowired @Qualifier("helloIndia")
+//    private HelloIndia helloIndia; you cannot use both the configurations.
+
+
+
     @Autowired(required = false)//if set to false, then the value will not be set.
     private String name;
 
@@ -30,14 +49,6 @@ public class TextEditor implements BeanNameAware{
         //@Qualifier(value = "spellChecker1") before the constructor
         //if the name is not specified in the constructor-arg, then on autowiring exception will be thrown.
         System.out.println("Inside text editor constructor");
-    }
-
-    @Override
-    public String toString() {
-        return "TextEditor{" +
-                "spellChecker=" + spellChecker +
-                ", name='" + name + '\'' +
-                '}';
     }
 
     public void spellCheck() {
@@ -58,4 +69,5 @@ public class TextEditor implements BeanNameAware{
     public void setBeanName(String name) {
         System.out.println("Text Bean name is "+name);
     }
+
 }
