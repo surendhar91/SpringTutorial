@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 public class TextEditor {
 
+    @Autowired @Qualifier("spellChecker2")
     private SpellChecker spellChecker;
     @Autowired(required = false)//if set to false, then the value will not be set.
     private String name;
@@ -13,16 +14,6 @@ public class TextEditor {
         //@Qualifier(value = "spellChecker1") before the constructor
         //if the name is not specified in the constructor-arg, then on autowiring exception will be thrown.
         System.out.println("Inside text editor constructor");
-    }
-
-    public SpellChecker getSpellChecker() {
-        return spellChecker;
-    }
-
-    @Autowired
-    @Qualifier(value = "spellChecker2")
-    public void setSpellChecker(SpellChecker spellChecker) {
-        this.spellChecker = spellChecker;
     }
 
     @Override
