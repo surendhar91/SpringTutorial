@@ -14,8 +14,7 @@
     </bean>
     <bean class="com.tutorialspoint.InitHelloWorld"/>
     <bean id="textEditor" class="com.tutorialspoint.TextEditor" lazy-init="true">
-        <constructor-arg index="1" value="101"/><!--use value when specifying primitives-->
-        <constructor-arg index="0" ref="spellChecker"/><!--Use ref when specifying references-->
+        <property name="spellChecker" ref="spellChecker"/>
     </bean>
     <bean id="spellChecker" class="com.tutorialspoint.SpellChecker" lazy-init="true"/>
 </beans>
