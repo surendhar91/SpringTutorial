@@ -1,6 +1,7 @@
 package com.tutorialspoint;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 public class TextEditor {
 
@@ -9,12 +10,12 @@ public class TextEditor {
     private String name;
 
     @Autowired
-    public TextEditor(SpellChecker spellChecker) {
+    public TextEditor(@Qualifier(value = "spellChecker1")SpellChecker spellChecker) {
+        //@Qualifier(value = "spellChecker1") before the constructor
         //if the name is not specified in the constructor-arg, then on autowiring exception will be thrown.
         System.out.println("Inside text editor constructor");
         this.spellChecker = spellChecker;
     }
-
 
 
     @Override
