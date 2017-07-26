@@ -13,7 +13,7 @@
         <property name = "message3" value = "Namaste India!"/>
     </bean>
     <bean class="com.tutorialspoint.InitHelloWorld"/>
-    <bean id="textEditor" class="com.tutorialspoint.TextEditor" lazy-init="true" autowire="byName">
+    <bean id="textEditor" class="com.tutorialspoint.TextEditor" lazy-init="true" autowire="byType">
         <property name="name" value="General Text Editor"/>
     </bean>
     <bean id="spellChecker" class="com.tutorialspoint.SpellChecker" lazy-init="true"/>
