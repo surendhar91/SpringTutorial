@@ -7,4 +7,9 @@ public class SpellChecker {
     public void checkSpelling() {
         System.out.println("Inside checkSpelling." );
     }
+
+    @Override
+    public String toString() {
+        return "SpellChecker{}";
+    }
 }
