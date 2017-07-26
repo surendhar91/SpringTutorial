@@ -7,10 +7,7 @@ public class MainApp {
     public static void main(String[] args) {
 
         AbstractApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-//        HelloWorld helloWorld = (HelloWorld) context.getBean("helloWorld");
-//        helloWorld.getMessage1();
-//        helloWorld.getMessage2();
-
+        System.out.println("=======================");
         HelloIndia helloIndia = (HelloIndia) context.getBean("helloIndia");
         helloIndia.getMessage1();
         helloIndia.getMessage2();

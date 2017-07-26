@@ -3,12 +3,11 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-init-method="myInitializer" default-destroy-method="myDestroyer">
-    <bean id="helloWorld" class="com.tutorialspoint.HelloWorld" lazy-init="true"
-         scope="singleton">
+    <bean id="beanTemplate" class="com.tutorialspoint.HelloWorld" abstract="true">
         <property name="message1" value="Hello World!"/>
         <property name="message2" value="Hello Second World!"/>
     </bean>
-    <bean id="helloIndia" class="com.tutorialspoint.HelloIndia" parent="helloWorld">
+    <bean id="helloIndia" class="com.tutorialspoint.HelloIndia" parent="beanTemplate" lazy-init="true">
         <!--It inherits the helloworld bean's property and values, and not java inheritance-->
         <property name = "message1" value = "Hello India!"/>
         <property name = "message3" value = "Namaste India!"/>
