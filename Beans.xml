@@ -13,10 +13,10 @@
         <property name = "message3" value = "Namaste India!"/>
     </bean>
     <bean class="com.tutorialspoint.InitHelloWorld"/>
-    <bean id="textEditor" class="com.tutorialspoint.TextEditor" lazy-init="true" autowire="byType">
-        <property name="name" value="General Text Editor"/>
+    <bean id="textEditor" class="com.tutorialspoint.TextEditor" autowire="constructor">
+        <constructor-arg value="Generic Text Editor"/>
     </bean>
-    <bean id="spellChecker" class="com.tutorialspoint.SpellChecker" lazy-init="true"/>
+    <bean id="spellChecker" class="com.tutorialspoint.SpellChecker"/>
     <bean id = "javaCollection" class = "com.tutorialspoint.JavaCollection">
 
         <!-- results in a setAddressList(java.util.List) call -->

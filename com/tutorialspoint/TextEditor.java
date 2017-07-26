@@ -6,23 +6,10 @@ public class TextEditor {
     private SpellChecker spellChecker;
     private String name;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public SpellChecker getSpellChecker() {
-        return spellChecker;
-    }
-
-    public TextEditor(){
-        System.out.println("Inside TextEditor constructor.");
-    }
-    public void setSpellChecker(SpellChecker spellChecker) {
+    public TextEditor(SpellChecker spellChecker, String name){
+        System.out.println("Inside text editor constructor");
         this.spellChecker = spellChecker;
+        this.name = name;
     }
 
     public void spellCheck() {
