@@ -8,11 +8,8 @@ public class MainApp {
 
         AbstractApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
         System.out.println("=======================");
-        HelloIndia helloIndia = (HelloIndia) context.getBean("helloIndia");
-        helloIndia.getMessage1();
-        helloIndia.getMessage2();
-        helloIndia.getMessage3();
-
+        TextEditor textEditor = (TextEditor) context.getBean("textEditor");
+        textEditor.spellCheck();
         context.registerShutdownHook();
     }
 }

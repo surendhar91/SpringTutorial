@@ -13,4 +13,9 @@
         <property name = "message3" value = "Namaste India!"/>
     </bean>
     <bean class="com.tutorialspoint.InitHelloWorld"/>
+    <bean id="textEditor" class="com.tutorialspoint.TextEditor" lazy-init="true">
+        <constructor-arg index="1" value="101"/><!--use value when specifying primitives-->
+        <constructor-arg index="0" ref="spellChecker"/><!--Use ref when specifying references-->
+    </bean>
+    <bean id="spellChecker" class="com.tutorialspoint.SpellChecker" lazy-init="true"/>
 </beans>
