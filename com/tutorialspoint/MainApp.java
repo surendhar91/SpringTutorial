@@ -15,11 +15,11 @@ public class MainApp {
 //        BeanFactory context = new XmlBeanFactory(resource);
 
         HelloWorld instance1 = (HelloWorld) context.getBean("helloWorld");
-        instance1.setMessage("Instance 1");
+//        instance1.setMessage("Instance 1");
         instance1.getMessage();
 
-        HelloWorld instance2 = (HelloWorld) context.getBean("helloWorld");
-        instance2.getMessage();
+//        HelloWorld instance2 = (HelloWorld) context.getBean("helloWorld");
+//        instance2.getMessage();
         context.registerShutdownHook();
         //register the shutdown hook with jvm, so that the resources get destroyed.
     }
