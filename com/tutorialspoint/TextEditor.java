@@ -15,7 +15,6 @@ public class TextEditor implements BeanNameAware{
 
     /*
     * The @Resource annotation takes a 'name' attribute which will be interpreted as the bean name to be injected. You can say, it follows by-name autowiring semantics*/
-    @Autowired
     private Job job;
 
     @Resource(name="spellChecker")
@@ -45,7 +44,8 @@ public class TextEditor implements BeanNameAware{
     @Autowired(required = false)//if set to false, then the value will not be set.
     private String name;
 
-    public TextEditor() {
+    public TextEditor(Job job) {
+        this.job = job;
         //@Qualifier(value = "spellChecker1") before the constructor
         //if the name is not specified in the constructor-arg, then on autowiring exception will be thrown.
         System.out.println("Inside text editor constructor");
