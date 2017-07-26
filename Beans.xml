@@ -14,7 +14,8 @@
     </bean>
     <bean class="com.tutorialspoint.InitHelloWorld"/>
     <bean id="textEditor" class="com.tutorialspoint.TextEditor" lazy-init="true">
-        <property name="spellChecker" ref="spellChecker"/>
+        <property name="spellChecker">
+            <bean id="spellChecker" class="com.tutorialspoint.SpellChecker" lazy-init="true"/>
+        </property>
     </bean>
-    <bean id="spellChecker" class="com.tutorialspoint.SpellChecker" lazy-init="true"/>
 </beans>
