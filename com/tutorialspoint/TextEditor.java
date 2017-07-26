@@ -5,10 +5,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.annotation.Resource;
 
 public class TextEditor {
 
-    @Autowired @Qualifier("spellChecker2")
+    @Resource(name="spellChecker1")//Autowiring by name
+    /*
+    * The @Resource annotation takes a 'name' attribute which will be interpreted as the bean name to be injected. You can say, it follows by-name autowiring semantics*/
     private SpellChecker spellChecker;
 
     @Autowired(required = false)//if set to false, then the value will not be set.
