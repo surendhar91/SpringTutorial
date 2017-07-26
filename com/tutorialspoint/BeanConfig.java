@@ -15,13 +15,12 @@ public class BeanConfig {
         return new TextEditor();
     }
     @Bean
-    @Primary
     @Lazy
     //Bean names are essentially alias, here spellChecker2 is the id, then we can specify textEditor2 were the alias.
     public SpellChecker dictSpellChecker(){
         return new SpellChecker();
     }
-    @Bean
+    @Bean(name="spellChecker")
     @Lazy
     public SpellChecker normalSpellChecker(){
         return new SpellChecker();

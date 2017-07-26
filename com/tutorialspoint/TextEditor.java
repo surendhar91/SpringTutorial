@@ -12,7 +12,7 @@ public class TextEditor implements BeanNameAware{
 
     /*
     * The @Resource annotation takes a 'name' attribute which will be interpreted as the bean name to be injected. You can say, it follows by-name autowiring semantics*/
-    @Autowired
+    @Resource(name="spellChecker")
     private SpellChecker spellChecker;
 
     public String getName() {
