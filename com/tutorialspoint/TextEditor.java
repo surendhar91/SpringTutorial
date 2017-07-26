@@ -1,5 +1,6 @@
 package com.tutorialspoint;
 
+import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -7,12 +8,20 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 
-public class TextEditor {
+public class TextEditor implements BeanNameAware{
 
-    @Resource(name="spellChecker1")//Autowiring by name
     /*
     * The @Resource annotation takes a 'name' attribute which will be interpreted as the bean name to be injected. You can say, it follows by-name autowiring semantics*/
+    @Resource(name="spellChecker1")//Autowiring by name
     private SpellChecker spellChecker;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     @Autowired(required = false)//if set to false, then the value will not be set.
     private String name;
@@ -43,5 +52,10 @@ public class TextEditor {
     @PreDestroy
     public void destroy(){
         System.out.println("--Text Editor Object destroyed--");
+    }
+
+    @Override
+    public void setBeanName(String name) {
+        System.out.println("Text Bean name is "+name);
     }
 }

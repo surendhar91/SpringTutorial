@@ -14,10 +14,10 @@
         <property name = "message3" value = "Namaste India!"/>
     </bean>
     <bean class="com.tutorialspoint.InitHelloWorld"/>
-    <bean id="textEditor" class="com.tutorialspoint.TextEditor">
+    <!--<bean id="textEditor" class="com.tutorialspoint.TextEditor">
     </bean>
     <bean id="spellChecker1" class="com.tutorialspoint.SpellChecker" lazy-init="true"/>
-    <bean id="spellChecker2" class="com.tutorialspoint.SpellChecker" lazy-init="true"/>
+    <bean id="spellChecker2" class="com.tutorialspoint.SpellChecker" lazy-init="true"/>-->
     <bean id = "javaCollection" class = "com.tutorialspoint.JavaCollection">
 
         <!-- results in a setAddressList(java.util.List) call -->
