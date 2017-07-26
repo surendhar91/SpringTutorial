@@ -3,10 +3,14 @@ package com.tutorialspoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 public class TextEditor {
 
     @Autowired @Qualifier("spellChecker2")
     private SpellChecker spellChecker;
+
     @Autowired(required = false)//if set to false, then the value will not be set.
     private String name;
 
@@ -26,5 +30,15 @@ public class TextEditor {
 
     public void spellCheck() {
         spellChecker.checkSpelling();
+    }
+
+    @PostConstruct
+    public void init(){
+        System.out.println("--Text Editor Object Initialized--");
+    }
+
+    @PreDestroy
+    public void destroy(){
+        System.out.println("--Text Editor Object destroyed--");
     }
 }
