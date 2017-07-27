@@ -18,12 +18,13 @@ public class LoggingAspect {
         Circle circle = (Circle) joinPoint.getTarget();// you can also get the object through getTarget.
     }
 
-    @Around("args(name)")
-    public Object stringArgumentMethodAdvice(ProceedingJoinPoint proceedingJoinPoint,String name){
+    @Around("@annotation(com.tutorialspoint.aspect.Loggable)")
+    public Object stringArgumentMethodAdvice(ProceedingJoinPoint proceedingJoinPoint){
         //first argument should always be proceeding join point
         System.out.println("Before calling the string argument method");
         Object returnValue = null;
         try {
+//            System.out.println(proceedingJoinPoint.getTarget()+"is the target");
             returnValue = proceedingJoinPoint.proceed();//now calls this method, get the return object and return it.
         } catch (Throwable throwable) {
             System.out.println("Exception thrown.."+throwable);

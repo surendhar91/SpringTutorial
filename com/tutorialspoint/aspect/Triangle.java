@@ -6,7 +6,7 @@ public class Triangle {
     public String getName() {
         return name;
     }
-
+    @Loggable
     public void setName(String name) {
         this.name = name;
     }

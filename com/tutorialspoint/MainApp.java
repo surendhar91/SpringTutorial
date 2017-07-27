@@ -23,7 +23,7 @@ public class MainApp {
         jc.getAddressMap();
         jc.getAddressProp();*/
         ShapeService shapeService = context.getBean("shapeService", ShapeService.class);
-        shapeService.getCircle().setName("surendhar");
+        shapeService.getTriangle().setName("surendhar");
 //        System.out.println(shapeService.getCircle().getName());
         try {
             shapeService.exceptionMethod();
