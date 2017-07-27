@@ -1,9 +1,7 @@
 package com.tutorialspoint.aspect;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 
 @Aspect
 public class LoggingAspect {
@@ -19,9 +17,19 @@ public class LoggingAspect {
         Circle circle = (Circle) joinPoint.getTarget();// you can also get the object through getTarget.
     }
 
-    @Before("args(name)")
-    public void stringArgumentMethodAdvice(String name){
+    @AfterReturning(pointcut = "args(name)", returning = "returningString")
+    public void stringArgumentMethodAdvice(String name, String returningString){
         System.out.println(name+" string argument method advice called.");
+        System.out.println("Returned string is "+returningString);
+    }
+
+    //@After - executes after the method execution (even when thrown excpetion this will be called)
+    //@AfterReturning - only on successful method execution, this will be called
+    //@AfterThrowing - after exception is thrown, call this method.
+
+    @AfterThrowing(pointcut="allMethods()",throwing="ex")
+    public void exceptionLog(Exception ex){
+        System.out.println("Exception thrown.."+ex);
     }
 
     @Before("allGetters()")

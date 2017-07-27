@@ -19,4 +19,7 @@ public class ShapeService {
     public void setTriangle(Triangle triangle) {
         this.triangle = triangle;
     }
+    public void exceptionMethod() throws Exception{
+        throw new Exception("exception thrown..");
+    }
 }
