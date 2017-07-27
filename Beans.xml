@@ -61,5 +61,6 @@
             </props>
         </property>
     </bean>
-
+    <bean id="cStartEventHandler" class="com.tutorialspoint.CStartEventHandler"></bean>
+    <bean id="cStopEventHandler" class="com.tutorialspoint.CStopEventHandler"></bean>
 </beans>
