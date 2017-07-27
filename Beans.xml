@@ -2,7 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
     <context:annotation-config/>
     <bean id="beanTemplate" class="com.tutorialspoint.HelloWorld" abstract="true">
         <property name="message1" value="Hello World!"/>
@@ -63,4 +64,13 @@
     </bean>
     <bean id="cStartEventHandler" class="com.tutorialspoint.CStartEventHandler"></bean>
     <bean id="cStopEventHandler" class="com.tutorialspoint.CStopEventHandler"></bean>
+    <bean id="circle" class="com.tutorialspoint.aspect.Circle">
+        <property name="name" value="General Circle"/>
+    </bean>
+    <bean id="triangle" class="com.tutorialspoint.aspect.Triange">
+        <property name="name" value="General Triangle"/>
+    </bean>
+    <bean id="shapeService" class="com.tutorialspoint.aspect.ShapeService" autowire="byName"/>
+    <aop:aspectj-autoproxy/>
+    <bean name="LoggingAspect" class="com.tutorialspoint.aspect.LoggingAspect"/>
 </beans>

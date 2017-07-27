@@ -1,5 +1,6 @@
 package com.tutorialspoint;
 
+import com.tutorialspoint.aspect.ShapeService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -15,14 +16,15 @@ public class MainApp {
 //        textEditor.spellCheck();
 //        textEditor.setName("TextEditor1..");
 //        System.out.println(textEditor);
-        context.start();
-        JavaCollection jc=(JavaCollection)context.getBean("javaCollection");
+        /*JavaCollection jc=(JavaCollection)context.getBean("javaCollection");
 
         jc.getAddressList();
         jc.getAddressSet();
         jc.getAddressMap();
-        jc.getAddressProp();
-        context.stop();
+        jc.getAddressProp();*/
+        ShapeService shapeService = context.getBean("shapeService", ShapeService.class);
+        System.out.println(shapeService.getCircle().getName());
+
         context.registerShutdownHook();
     }
 }
