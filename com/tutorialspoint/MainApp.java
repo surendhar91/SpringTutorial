@@ -23,6 +23,7 @@ public class MainApp {
         jc.getAddressMap();
         jc.getAddressProp();*/
         ShapeService shapeService = context.getBean("shapeService", ShapeService.class);
+        shapeService.getCircle().setName("surendhar");
         System.out.println(shapeService.getCircle().getName());
 
         context.registerShutdownHook();

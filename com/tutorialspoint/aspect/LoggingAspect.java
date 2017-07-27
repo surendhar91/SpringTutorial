@@ -1,5 +1,6 @@
 package com.tutorialspoint.aspect;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -12,8 +13,15 @@ public class LoggingAspect {
     //(*) - one ore more arguments
     //(..) - zero or more arguments
     //() - zero arguments
-    public void LoggingAdvice(){//standard terminology
+    public void LoggingAdvice(JoinPoint joinPoint){//standard terminology
         System.out.println("Advice run. Get Method called.");
+        System.out.println(joinPoint);//joinpoint provides information on the method that triggered this logging advice.
+        Circle circle = (Circle) joinPoint.getTarget();// you can also get the object through getTarget.
+    }
+
+    @Before("args(name)")
+    public void stringArgumentMethodAdvice(String name){
+        System.out.println(name+" string argument method advice called.");
     }
 
     @Before("allGetters()")
