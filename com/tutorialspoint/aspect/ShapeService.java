@@ -2,7 +2,7 @@ package com.tutorialspoint.aspect;
 
 public class ShapeService {
     private Circle circle;
-    private Triange triange;
+    private Triangle triangle;
 
     public Circle getCircle() {
         return circle;
@@ -12,11 +12,11 @@ public class ShapeService {
         this.circle = circle;
     }
 
-    public Triange getTriange() {
-        return triange;
+    public Triangle getTriangle() {
+        return triangle;
     }
 
-    public void setTriange(Triange triange) {
-        this.triange = triange;
+    public void setTriangle(Triangle triangle) {
+        this.triangle = triangle;
     }
 }

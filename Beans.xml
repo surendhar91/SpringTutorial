@@ -67,7 +67,7 @@
     <bean id="circle" class="com.tutorialspoint.aspect.Circle">
         <property name="name" value="General Circle"/>
     </bean>
-    <bean id="triangle" class="com.tutorialspoint.aspect.Triange">
+    <bean id="triangle" class="com.tutorialspoint.aspect.Triangle">
         <property name="name" value="General Triangle"/>
     </bean>
     <bean id="shapeService" class="com.tutorialspoint.aspect.ShapeService" autowire="byName"/>

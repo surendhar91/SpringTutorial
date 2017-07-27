@@ -1,6 +1,6 @@
 package com.tutorialspoint.aspect;
 
-public class Triange {
+public class Triangle {
     private String name;
 
     public String getName() {
