@@ -1,6 +1,7 @@
 package com.tutorialspoint.aspect;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 
 @Aspect
@@ -17,10 +18,18 @@ public class LoggingAspect {
         Circle circle = (Circle) joinPoint.getTarget();// you can also get the object through getTarget.
     }
 
-    @AfterReturning(pointcut = "args(name)", returning = "returningString")
-    public void stringArgumentMethodAdvice(String name, String returningString){
-        System.out.println(name+" string argument method advice called.");
-        System.out.println("Returned string is "+returningString);
+    @Around("args(name)")
+    public Object stringArgumentMethodAdvice(ProceedingJoinPoint proceedingJoinPoint,String name){
+        //first argument should always be proceeding join point
+        System.out.println("Before calling the string argument method");
+        Object returnValue = null;
+        try {
+            returnValue = proceedingJoinPoint.proceed();//now calls this method, get the return object and return it.
+        } catch (Throwable throwable) {
+            System.out.println("Exception thrown.."+throwable);
+        }
+        System.out.println("After calling the string argument method");
+        return returnValue;
     }
 
     //@After - executes after the method execution (even when thrown excpetion this will be called)
